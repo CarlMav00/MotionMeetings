@@ -1,0 +1,11 @@
+{
+  "name": "mm-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "serve . --listen 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
