@@ -76,13 +76,19 @@
       pointer-events: none;
     }
     .hero-inner {
-      max-width: 900px;
+      max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
       position: relative;
       z-index: 1;
-      background: rgba(10,30,35,.72);
-      border-radius: 16px;
-      padding: 48px 52px;
+      display: flex;
+      align-items: center;
+    }
+    .hero-text {
+      max-width: 520px;
+      background: rgba(12,28,34,.78);
+      border-radius: 18px;
+      padding: 44px 48px;
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -536,6 +542,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
+    <div class="hero-text">
     <div class="hero-eyebrow">2026 Benchmark Survey · Exclusive Research</div>
     <h1>Low participation isn't<br>an apathy problem.<br><em>It's a design problem.</em></h1>
     <p class="hero-sub">We surveyed 300 union members across English and French Canada. The findings challenge everything unions have assumed about why members don't show up — and what it actually takes to change that.</p>
@@ -753,8 +760,6 @@
       <p class="form-card-sub">Takes 30 seconds. We'll send it to you immediately.</p>
 
       <div id="formWrap">
-        <div id="hsFormContainer"></div>
-
         <div id="hsFormContainer"></div>
       </div>
     </div>
