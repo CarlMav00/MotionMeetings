@@ -753,53 +753,9 @@
       <p class="form-card-sub">Takes 30 seconds. We'll send it to you immediately.</p>
 
       <div id="formWrap">
-        <!-- ═══════════════════════════════════════════════════════
-             HUBSPOT INJECT POINT
-             Replace this entire <form> block with your HubSpot
-             embed code when deploying to motionmeetings.com.
-             Portal ID: 46245597
-             ═══════════════════════════════════════════════════════ -->
-        <form id="reportForm" novalidate>
-          <div class="field-row">
-            <div class="field">
-              <label>First Name</label>
-              <input type="text" id="ff-first" placeholder="Jane" required>
-            </div>
-            <div class="field">
-              <label>Last Name</label>
-              <input type="text" id="ff-last" placeholder="Smith" required>
-            </div>
-          </div>
-          <div class="field">
-            <label>Work Email</label>
-            <input type="email" id="ff-email" placeholder="jane@cupelocal.ca" required>
-          </div>
-          <div class="field">
-            <label>Organization</label>
-            <input type="text" id="ff-org" placeholder="CUPE Local 123" required>
-          </div>
-          <div class="field">
-            <label>Your Role</label>
-            <select id="ff-role">
-              <option value="">Select your role…</option>
-              <option>Union President / Executive</option>
-              <option>Director of Communications</option>
-              <option>Election Officer / Organizer</option>
-              <option>Executive Director</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <button type="submit" class="btn-submit">Send Me the Full Report →</button>
-          <p class="form-privacy">No spam. Unsubscribe anytime. Your information is protected under Canadian privacy law.</p>
-        </form>
+        <div id="hsFormContainer"></div>
 
-        <div class="form-success" id="formSuccess">
-          <div class="success-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0DFFAE" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          </div>
-          <h4>You're all set.</h4>
-          <p>Check your inbox — the full report is on its way. If you'd like to talk through the findings with us, <a href="https://motionmeetings.com/book-a-demo" style="color:#0A6672;font-weight:700">book a 30-minute call here</a>.</p>
-        </div>
+        <div id="hsFormContainer"></div>
       </div>
     </div>
 
@@ -831,58 +787,14 @@
      Wired to HubSpot Forms API, portal 46245597.
      Replace HS_FORM with your actual form GUID from HubSpot
      after creating a form for this campaign.
-  ─────────────────────────────────────────────────────────────── */
-  var HS_PORTAL = '46245597';
-  var HS_FORM   = 'YOUR-FORM-GUID-HERE'; // ← replace this
-
-  document.getElementById('reportForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    var firstName = document.getElementById('ff-first').value.trim();
-    var lastName  = document.getElementById('ff-last').value.trim();
-    var email     = document.getElementById('ff-email').value.trim();
-    var org       = document.getElementById('ff-org').value.trim();
-    var role      = document.getElementById('ff-role').value;
-
-    if (!firstName || !email || !org) {
-      alert('Please fill in your name, email, and organization.');
-      return;
-    }
-
-    var btn = document.querySelector('.btn-submit');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    var payload = {
-      fields: [
-        { name: 'firstname',  value: firstName },
-        { name: 'lastname',   value: lastName },
-        { name: 'email',      value: email },
-        { name: 'company',    value: org },
-        { name: 'jobtitle',   value: role }
-      ],
-      context: {
-        pageUri: window.location.href,
-        pageName: '2026 Union Member Engagement Benchmark Survey'
-      }
-    };
-
-    fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + HS_PORTAL + '/' + HS_FORM, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(function(res) {
-      document.getElementById('reportForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    })
-    .catch(function() {
-      // Show success anyway — form data captured on submit
-      document.getElementById('reportForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    });
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    portalId: "46245597",
+    formId: "66f9c06f-34ec-434c-a84d-052829288e81",
+    region: "na1",
+    target: "#hsFormContainer"
   });
 </script>
-
 </body>
 </html>
