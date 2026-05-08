@@ -57,6 +57,23 @@
       transition: opacity .15s;
     }
     .nav-cta:hover { opacity: .88; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-lang {
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(255,255,255,.2);
+      border-radius: 99px;
+      padding: 6px 12px;
+      transition: color .15s, border-color .15s;
+    }
+    .nav-lang:hover { color: rgba(255,255,255,.9); border-color: rgba(255,255,255,.5); }
 
     /* ── HERO ── */
     .hero {
@@ -528,7 +545,10 @@
   <a href="https://motionmeetings.com" class="nav-logo">
     <img src="https://46245597.fs1.hubspotusercontent-na1.net/hubfs/46245597/MotionMeetings_January2025/images/Motion-Meetings-Logo.png" alt="Motion Meetings" style="height:32px;width:auto;display:block;">
   </a>
-  <a href="#get-the-data" class="nav-cta">Get the Full Report</a>
+  <div class="nav-right">
+    <a href="#get-the-data" class="nav-cta">Get the Full Report</a>
+    <a href="/fr" class="nav-lang">FR</a>
+  </div>
 </nav>
 
 <!-- HERO -->
