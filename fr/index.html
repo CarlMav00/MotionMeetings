@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sondage de référence 2026 sur l'engagement des membres syndiqués — Motion Meetings</title>
+  <meta name="description" content="300 membres syndiqués. 5 constats. Une conclusion : la faible participation n'est pas un problème d'apathie — c'est un problème de conception. Obtenez toutes les données.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #16323A;
+      --teal:   #0A6672;
+      --green:  #0DFFAE;
+      --orange: #FF5D00;
+      --soft:   #E9F1F2;
+      --muted:  #5A7A82;
+      --line:   #D4E3E6;
+      --white:  #ffffff;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ── */
+    .nav {
+      background: var(--ink);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-cta {
+      background: var(--orange);
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 99px;
+      transition: opacity .15s;
+    }
+    .nav-cta:hover { opacity: .88; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      background-image: url('../employee_engagement.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      padding: 80px 32px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10,30,35,.15);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+    .hero-text {
+      max-width: 520px;
+      background: rgba(12,28,34,.78);
+      border-radius: 18px;
+      padding: 44px 48px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(13,255,174,.12);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.3);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #0DFFAE;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,.7);
+      max-width: 620px;
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,.6);
+    }
+    .hero-meta-item svg { flex-shrink: 0; }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      background: var(--soft);
+      padding: 48px 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .intro-band-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+    .intro-stat-num {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--teal);
+      letter-spacing: -.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .intro-stat-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* ── SECTION SHARED ── */
+    .section { padding: 80px 32px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-lead {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    /* ── FINDINGS ── */
+    .findings { background: white; }
+    .finding-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: box-shadow .2s;
+    }
+    .finding-card:hover { box-shadow: 0 8px 32px rgba(10,102,114,.1); }
+    .finding-num-col {
+      background: var(--teal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      text-align: center;
+    }
+    .finding-badge {
+      display: none;
+    }
+    .finding-big-num {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+    .finding-big-unit {
+      font-size: 20px;
+      font-weight: 900;
+      color: rgba(255,255,255,.7);
+      margin-left: 4px;
+    }
+    .finding-body {
+      padding: 28px 32px;
+    }
+    .finding-body h3 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -.01em;
+    }
+    .finding-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .finding-body .finding-detail {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .finding-chip {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 4px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+    .finding-chip.hi { background: rgba(13,255,174,.12); border-color: rgba(13,255,174,.3); color: var(--teal); }
+    .finding-chip.warn { background: rgba(255,93,0,.08); border-color: rgba(255,93,0,.2); color: var(--orange); }
+
+    /* ── WHAT THIS MEANS ── */
+    .implications { background: var(--soft); }
+    .implication-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .implication-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .implication-card .ic-icon {
+      width: 40px; height: 40px;
+      background: var(--soft);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .implication-card h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .implication-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .implication-card strong { color: var(--teal); }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      background: var(--ink);
+      padding: 80px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(13,255,174,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .form-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .form-copy h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 900;
+      color: white;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .form-copy h2 em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .form-copy p {
+      font-size: 16px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .form-includes {
+      list-style: none;
+    }
+    .form-includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 12px;
+    }
+    .form-includes li svg { flex-shrink: 0; margin-top: 2px; }
+
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px;
+    }
+    .form-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .form-card .form-card-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--ink);
+      background: white;
+      transition: border-color .15s;
+      -webkit-appearance: none;
+    }
+    .field input:focus, .field select:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--orange);
+      color: white;
+      font-size: 16px;
+      font-weight: 900;
+      padding: 16px;
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity .15s, transform .1s;
+      margin-top: 6px;
+    }
+    .btn-submit:hover { opacity: .9; transform: translateY(-1px); }
+    .form-privacy {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* SUCCESS STATE */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .form-success .success-icon {
+      width: 56px; height: 56px;
+      background: rgba(13,255,174,.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .form-success h4 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .form-success p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── METHODOLOGY ── */
+    .methodology {
+      background: white;
+      padding: 48px 32px;
+      border-top: 1px solid var(--line);
+    }
+    .methodology-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .methodology h3 {
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--teal);
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+    .methodology p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .methodology-divider {
+      width: 1px;
+      background: var(--line);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 28px 32px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,.4);
+    }
+    footer a { color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .intro-band-inner { grid-template-columns: 1fr; gap: 24px; }
+      .finding-card { grid-template-columns: 90px 1fr; }
+      .finding-big-num { font-size: 32px; }
+      .implication-list { grid-template-columns: 1fr; }
+      .form-inner { grid-template-columns: 1fr; gap: 40px; }
+      .field-row { grid-template-columns: 1fr; }
+      .methodology-inner { flex-direction: column; gap: 24px; }
+      .methodology-divider { width: 100%; height: 1px; align-self: auto; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 14px 18px; }
+      .section { padding: 56px 18px; }
+      .hero { padding: 56px 18px 48px; }
+      .finding-card { grid-template-columns: 1fr; }
+      .finding-num-col { padding: 20px; flex-direction: row; gap: 16px; justify-content: flex-start; }
+      .finding-badge { margin-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://motionmeetings.com" class="nav-logo">
+    <img src="https://46245597.fs1.hubspotusercontent-na1.net/hubfs/46245597/MotionMeetings_January2025/images/Motion-Meetings-Logo.png" alt="Motion Meetings" style="height:32px;width:auto;display:block;">
+  </a>
+  <a href="#obtenir-les-donnees" class="nav-cta">Obtenir le rapport complet</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+    <div class="hero-eyebrow">Sondage de référence 2026 · Recherche exclusive</div>
+    <h1>La faible participation<br>n'est pas un problème<br>d'apathie.<br><em>C'est un problème de conception.</em></h1>
+    <p class="hero-sub">Nous avons sondé 300 membres syndiqués partout au Canada, en français et en anglais. Les résultats remettent en question ce que les syndicats ont toujours supposé sur les raisons de l'absence des membres — et sur ce qu'il faut vraiment faire pour changer les choses.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="rgba(255,255,255,.5)"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        300 membres syndiqués sondés
+      </div>
+      <div class="hero-meta-item">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="rgba(255,255,255,.5)"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Canada anglophone &amp; francophone
+      </div>
+      <div class="hero-meta-item">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="rgba(255,255,255,.5)"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Marge d'erreur ±5,7 pp
+      </div>
+      <div class="hero-meta-item">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="rgba(255,255,255,.5)"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Avril 2026
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div class="intro-band-inner">
+    <div>
+      <div class="intro-stat-num">300</div>
+      <div class="intro-stat-label">Membres syndiqués sondés partout au Canada</div>
+    </div>
+    <div>
+      <div class="intro-stat-num">5</div>
+      <div class="intro-stat-label">Constats clés sur ce qui stimule vraiment l'engagement</div>
+    </div>
+    <div>
+      <div class="intro-stat-num">1</div>
+      <div class="intro-stat-label">Conclusion : c'est un problème de conception de la participation</div>
+    </div>
+  </div>
+</div>
+
+<!-- FINDINGS -->
+<section class="section findings">
+  <div class="section-inner">
+    <div class="section-eyebrow">Principales constatations</div>
+    <h2>Cinq choses que les données nous ont révélées.</h2>
+    <p class="section-lead">Ce ne sont pas des opinions. Ce sont des corrélations issues de 300 membres syndiqués — et elles pointent vers une conclusion claire et applicable.</p>
+
+    <!-- Finding 1 -->
+    <div class="finding-card">
+      <div class="finding-num-col">
+        <div class="finding-badge">1</div>
+        <div>
+          <div class="finding-big-num">4<span class="finding-big-unit">×</span></div>
+        </div>
+      </div>
+      <div class="finding-body">
+        <h3>Assister aux assemblées est le meilleur prédicteur de l'engagement.</h3>
+        <p>Les membres qui ont assisté à au moins une assemblée sont 4 fois plus susceptibles de se décrire comme activement engagés. C'est le levier le plus puissant dont disposent les syndicats — et il est largement sous-utilisé.</p>
+        <div class="finding-detail">
+          <span class="finding-chip hi">75 % engagés parmi les participants</span>
+          <span class="finding-chip warn">18 % engagés parmi les non-participants</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finding 2 -->
+    <div class="finding-card">
+      <div class="finding-num-col">
+        <div class="finding-badge">2</div>
+        <div>
+          <div class="finding-big-num">0<span class="finding-big-unit">%</span></div>
+        </div>
+      </div>
+      <div class="finding-body">
+        <h3>Le comportement de vote révèle l'engagement de façon presque parfaite.</h3>
+        <p>Nous n'avons trouvé aucun membre qui ne vote jamais et qui se considère tout de même fortement engagé — pas un seul.</p>
+        <div class="finding-detail">
+          <span class="finding-chip warn">0 % des membres désengagés votent</span>
+          <span class="finding-chip warn">79 % des non-votants sont désengagés</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finding 3 -->
+    <div class="finding-card">
+      <div class="finding-num-col">
+        <div class="finding-badge">3</div>
+        <div>
+          <div class="finding-big-num">57<span class="finding-big-unit">%</span></div>
+        </div>
+      </div>
+      <div class="finding-body">
+        <h3>Pour la majorité des membres désengagés, les obstacles sont structurels — pas motivationnels.</h3>
+        <p>Les conflits d'horaire de travail (37 %) et les engagements familiaux ou personnels (20 %) sont les premiers obstacles cités. Ce sont des problèmes de conception. On peut les régler avec de meilleurs formats, horaires et modes d'accès — pas avec de meilleures communications.</p>
+        <div class="finding-detail">
+          <span class="finding-chip warn">37 % — conflits d'horaire de travail</span>
+          <span class="finding-chip warn">20 % — engagements familiaux &amp; personnels</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finding 4 -->
+    <div class="finding-card">
+      <div class="finding-num-col">
+        <div class="finding-badge">4</div>
+        <div>
+          <div class="finding-big-num">54<span class="finding-big-unit">%</span></div>
+        </div>
+      </div>
+      <div class="finding-body">
+        <h3>Une option virtuelle ou hybride ferait une vraie différence — immédiatement.</h3>
+        <p>Plus de la moitié des membres qui n'assistent pas aux assemblées disent qu'ils participeraient si une option virtuelle ou hybride était offerte. C'est le changement à plus haut rendement et à plus faible friction que les syndicats peuvent faire dès maintenant.</p>
+        <div class="finding-detail">
+          <span class="finding-chip hi">54 % participeraient si une option virtuelle ou hybride était disponible</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Finding 5 -->
+    <div class="finding-card">
+      <div class="finding-num-col">
+        <div class="finding-badge">5</div>
+        <div>
+          <div class="finding-big-num">27<span class="finding-big-unit">%</span></div>
+        </div>
+      </div>
+      <div class="finding-body">
+        <h3>L'autre segment a un problème plus profond — et nécessite une approche différente.</h3>
+        <p>27 % des membres ne croient pas que leur participation fasse une différence. 19 % trouvent les assemblées non pertinentes à leur situation. Améliorer l'accès seul ne les rejoindra pas. Restaurer un sentiment d'agir ensemble exige quelque chose de plus profond — un dialogue bidirectionnel, des résultats visibles, une voix réelle dans les décisions.</p>
+        <div class="finding-detail">
+          <span class="finding-chip warn">27 % — leur implication ne leur semble pas utile</span>
+          <span class="finding-chip warn">19 % — trouvent les assemblées non pertinentes</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPLICATIONS -->
+<section class="section implications">
+  <div class="section-inner">
+    <div class="section-eyebrow">Ce que ça signifie</div>
+    <h2>L'écart se trouve dans la conception de la participation — pas dans la communication.</h2>
+    <p class="section-lead">Les syndicats ne sont pas en échec en matière de communication — 73 % des membres se disent bien informés. Le problème se situe dans la conception des moments où l'on demande aux membres de se mobiliser.</p>
+
+    <div class="implication-list">
+      <div class="implication-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A6672" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h4>Une meilleure conception rejoint environ la moitié des membres désengagés.</h4>
+        <p>Les obstacles structurels — horaires, accès, format — sont réglables. <strong>54 % des non-participants disent qu'ils viendraient si on venait à eux.</strong> Ce n'est pas de l'apathie. C'est une invitation.</p>
+      </div>
+      <div class="implication-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A6672" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+        </div>
+        <h4>L'autre moitié a besoin d'un dialogue bidirectionnel, pas d'une diffusion.</h4>
+        <p>Les membres qui sentent que leur participation ne compte pas doivent <em>vivre</em> le contraire. <strong>Les assemblées ouvertes, les séances de questions en temps réel et les décisions visibles</strong> sont les interventions qui font bouger ce groupe.</p>
+      </div>
+      <div class="implication-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A6672" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h4>Les assemblées virtuelles et hybrides ne sont pas un compromis — c'est un levier stratégique.</h4>
+        <p>Les données sont sans équivoque : <strong>offrir un accès virtuel est le changement à plus haut rendement</strong> qu'un syndicat peut faire pour élargir la participation. Aucune persuasion nécessaire. Les membres sont déjà prêts.</p>
+      </div>
+      <div class="implication-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A6672" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h4>La présence aux assemblées et le vote sont vos indicateurs avancés.</h4>
+        <p>Vous voulez savoir si vos membres sont engagés ? Cessez de les sonder. Regardez <strong>qui a assisté à au moins une assemblée au cours de la dernière année</strong> et qui a voté. Ces deux données prédisent l'état d'engagement mieux que n'importe quel sondage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="obtenir-les-donnees">
+  <div class="form-inner">
+
+    <div class="form-copy">
+      <h2>Obtenez le <em>rapport complet</em> et les données qui le soutiennent.</h2>
+      <p>Le sommaire du sondage comprend des portraits de membres, des comparaisons par secteur et une section méthodologique complète. Il est disponible maintenant — sans délai, sans frais.</p>
+      <ul class="form-includes">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#0DFFAE"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Sommaire du sondage en PDF complet
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#0DFFAE"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          3 portraits de membres syndiqués (Sophie, Marcus, Priya)
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#0DFFAE"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Ventilation par secteur : public, privé, sans but lucratif
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#0DFFAE"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Versions française et anglaise disponibles
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 20 20" fill="#0DFFAE"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Séance de débriefing optionnelle de 30 min avec l'équipe de recherche
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-card">
+      <div id="formWrap">
+        <div id="hsFormContainer"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<div class="methodology">
+  <div class="methodology-inner">
+    <div>
+      <h3>Méthodologie</h3>
+      <p>300 répondants · Canada anglophone et francophone · Avril 2026 · Marge d'erreur ±5,7 points de pourcentage, 19 fois sur 20. Secteur public 62 %, secteur privé 33 %, sans but lucratif 3 %. Tous les résultats sont corrélationnels, non causaux.</p>
+    </div>
+    <div class="methodology-divider"></div>
+    <div>
+      <h3>À propos de Motion Meetings</h3>
+      <p>Motion Meetings développe la plateforme utilisée par les syndicats canadiens pour tenir des AGA sécurisés, des votes de ratification et des assemblées hybrides. Une seule plateforme. Chaque voix compte.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Motion Meetings · <a href="https://motionmeetings.com">motionmeetings.com</a> · Préparé en partenariat avec l'équipe de recherche de Motion Meetings.</p>
+</footer>
+
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    portalId: "46245597",
+    formId: "66f9c06f-34ec-434c-a84d-052829288e81",
+    region: "na1",
+    target: "#hsFormContainer"
+  });
+</script>
+</body>
+</html>
